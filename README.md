@@ -1,5 +1,8 @@
 # SafeStreets project: Cavadini, Molinari, Pederzani
 
+# Assignment:
+https://github.com/Pederzh/CavadiniMolinariPederzani/blob/master/doc/SafeStreets%20Mandatory%20Project%20Assignment.pdf
+
 # Deadlines:
 • RASD	submission	deadline	10/11/2019 <br />
 • DD submission	deadline	9/12/2019 <br />
