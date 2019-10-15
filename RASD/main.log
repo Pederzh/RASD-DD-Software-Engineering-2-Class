@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019) (preloaded format=xelatex 2019.7.30)  15 OCT 2019 13:25
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019) (preloaded format=xelatex 2019.7.30)  15 OCT 2019 15:24
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -958,11 +958,7 @@ Missing character: There is no – in font ptmr8t!
  [5
 
 ]
-(./Files/overview.tex
-
-LaTeX Warning: Reference `fig:metamodel' on page 6 undefined on input line 4.
-
-)
+(./Files/overview.tex)
 Missing character: There is no – in font ptmr8t!
  [6
 
@@ -972,10 +968,10 @@ Missing character: There is no – in font ptmr8t!
 
 ] (./Files/alloy.tex)
 Missing character: There is no – in font ptmr8t!
- [8
 
-]
-(./Files/effort.tex)
+[8
+
+] (./Files/effort.tex)
 Missing character: There is no – in font ptmr8t!
  [9
 
@@ -990,18 +986,14 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 106.
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 106.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 106.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 8333A92D1AF06ED661A3A7BC0DC78EB0.
-
-
-LaTeX Warning: There were undefined references.
-
+(rerunfilecheck)             Checksum: 8854E46DFDF6011BFDB7E8AAE8164A97.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 106.
  ) 
 Here is how much of TeX's memory you used:
- 23117 strings out of 492916
- 414656 string characters out of 6133345
- 474981 words of memory out of 5000000
- 26728 multiletter control sequences out of 15000+600000
+ 23118 strings out of 492916
+ 414668 string characters out of 6133345
+ 476981 words of memory out of 5000000
+ 26729 multiletter control sequences out of 15000+600000
  37927 words of font info for 66 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  59i,17n,65p,614b,577s stack positions out of 5000i,500n,10000p,200000b,80000s
