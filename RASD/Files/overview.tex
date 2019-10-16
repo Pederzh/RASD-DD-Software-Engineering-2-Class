@@ -1,6 +1,29 @@
 \subsection{Product perspective}
 
-cava
+\subsubsection{Domain function}
+
+The platform has to manage different entities. Some of them are linked and they shared data and function.
+The entities are: 
+-User
+-Local authority 
+-Report (what the user sends)
+-Violation 
+-Fine(Multa)
+-Stats
+
+The User Who see a wrong parking take a photo of the park offense and sends it to the server with All the relative informations like the route etc.
+All of these informations create the entity Report that are analyzed by the platform’s algorithm.
+If the report isn’t fake, it is associeted to it the violation and it is calculated the fine to pay.
+The violations are sent to the authority that can analyize which are the most dangerous aereas or the most dangerous veichols and can share All of these informations with the platform.
+The data obtained can be processed by the platform to create or update the statistics that are Used to highlight the aereas with more problems 
+
+\subsubsection{Further details on shared phenomena}
+
+-Report trasmission: the report is composed by the photo of the violation and by its metadata( route, time etc.).
+The report have to be encrypted because contains private data (HTTPS).
+It must have all the fields not empty to understand if the report is true or fake.
+-Authority notifications: it has to contain the data of the violations and once it is recieved, it has to start the algorithm to check the veracity of the photo and then calculates the fine.
+-Presentation of the statistics: it recieves the data from the authority, that it will be elaborate to show if some areas/veicheles are dangerous, and highlight them
 
 \subsection{Product functions}
 Considering the objectives requested by SafeStreets, main functions are described below:
