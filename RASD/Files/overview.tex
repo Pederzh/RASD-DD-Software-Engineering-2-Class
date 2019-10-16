@@ -3,8 +3,7 @@
 cava
 
 \subsection{Product functions}
-
-Considering the objectives requested by SafeStreets
+Considering the objectives requested by SafeStreets, main functions are described below:
 
 \subsubsection{Notify Traffic Violations}
 The main requirement of the application is to provide users a smart and effortless tool to authorities when traffic violations occur.
@@ -12,19 +11,75 @@ The main requirement of the application is to provide users a smart and effortle
 Users are able to select the type of violation, providing the name of the street and upload a picture containing the license plate that will be read by an algorithm.
 
 \subsubsection{License Plate Recognition}
-License plate recognition functionality is crucial for SafeStreets. The fact that there isn't a human being responsible for manually recognizing license plates is important for the scalability, when the application will be used on a large scale.
+License plate recognition functionality is crucial for SafeStreets, from the license plate we can get information about the owner, the vehicle and its specs.
+
+The fact that there isn't a human being responsible for manually recognizing license plates is important for the scalability, when the application will be used on a large scale.
 
 Automatic number-plate recognition (ANPR) technology consists in seven primary algorithms that the software requires: Plate localization, Plate orientation and sizing, Normalization, Character segmentation, Optical character recognition, Geometrical analysis, Averaging of the recognised values to produce a more reliable or confident result.
 
 Due to the fact that the image will be widely analyzed, it must be in high resolution with no blur and in a good lighting context.
 
 \subsubsection{Data Collection}
-Due to the fact that data is the most valuable asset of modern industry, data collection is important for all statistics and information SafeStreets provide.
+Due to the fact that data is the most valuable asset of modern industry, data collection is important for all statistics, information and data visualization SafeStreets provide.
+
+It collects data coming from different sources: users inputs, municipality and police databases.
+Data collection involve several practices about correctness and security.
+
+\subsubsection{Data Visualization}
+A part of the application is dedicated to data visualization by showing a map on which the streets/areas are colored according to the frequency of violations compared to the average violations: 
+\begin{itemize}
+\item red = high
+\item yellow = medium
+\item green = low
+\item grey = no data
+\end{itemize}
+
+Also there is a part of the UI where users and authorities can see statistics about vehicles and violations.
 
 \subsubsection{Data Sets Analysis}
 The functionality of data analysis is crucial for finding patterns in data sets.
 
+\subsubsection{Suggest Possible Interventions}
+Thanks to data sets analysis, SafeStreets can suggest possible interventions for already identified "high-violation" streets.
+
+For each violation is assigned one or more interventions that will help to decrease the occurrence of violations.
+
+
 \subsubsection{Information Integrity}
-Thanks to "Notify Traffic Violations" functionality and ensuring that data are correct and information are never altered.
-Local police could take the information about the violations coming from SafeStreets, and generate traffic tickets from it. 
+Data integrity is defined as maintenance and assurance of data consistency over its entire life-cycle.
+
+Ensuring that data are correct and information are never altered is important, because local police could take the information about the violations coming from SafeStreets, and generate traffic tickets from it.
+
+\subsubsection{Generating Traffic Tickets}
+This functionality is not an internal feature of the application. 
+
+Our scope is to provide the police, data about violations and with this information the municipality could generate traffic tickets.
+
+For this reason SafeStreet exposes REST API endpoints to allow authenticated user, in this case the police, to get violations information.
+
+
+\subsection{User characteristics}
+
+The following actors are the users of this application:
+
+\begin{itemize}
+	\item End users
+\end{itemize}
+
+The end user is a person who, after the sign up, can use SafeStreets to notify traffic violations, consult statistics and see the map with violation information for each street.
+
+\begin{itemize}
+	\item Authorities:
+	\subitem Municipality
+	\subitem Local police
+\end{itemize}
+
+
+Authority is an organization who, after a different sign up from end users, can use SafeStreets to get information about traffic violations for generating traffic tickets, consult possible interventions suggested to decrease violations, see statistics and the map with violation information for each street.
+Also they can provide their data to SafeStreets, so it is able to cross authorities data with its own data.
+
+
+
+
+
 
