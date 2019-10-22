@@ -57,7 +57,7 @@ The local authority have to relase a traffic ticket in case of a user made an in
 \begin{center}
 	\begin{tabular}{ | l | p{6cm} | } 
 		\hline
-		ACTORS & User  \\ 
+		ACTORS & Visitors  \\ 
 		\hline
 		GOALS & Sign up  \\ 
 		\hline
@@ -232,5 +232,19 @@ The local authority have to relase a traffic ticket in case of a user made an in
 	\end{tabular}
 \end{center}
 
-
+\subsection{Software system attributes}
+\subsubsection{Reliability}
+The system has to ensure reliability, to this scope we have decided to keep a backup server, that operate every 24h.
+The system also use an algorithm to ensure that the reports of violations that the system recive, are real and not modified or fake.
+\subsubsection{Availability}
+The platform has to be available every day, especially in the rush hours because are the hours where there are more traffic and it could be useful to be active in that time. SafeStreets must have 99\% (3.65 days/year downtime).
+\subsubsection{Security}
+The data have to be crypted, to grant the privacy (ex.user's position, car license plate etc.). It could be useful to use HTTPS protocol to transmit data from user to SafeStreets.
+Every account must have a strong password with the combination of upper-case, lower-case letters, numbers and punctuation.
+\subsubsection{Maintainability}
+The system is programmed to be compatible with other platform, like the system of the local authority.
+There could be maintenance interventions, when it's possible there will be in the hours with the less use of the platform.
+There will be released updates, both for application and system.
+\subsubsection{Portability}
+The entire system is portable, every user (citizen or local authority) can access to their profile, see data, statisthics and make reports of violation from their mobile or their tablet, not especially from PCs.
  
