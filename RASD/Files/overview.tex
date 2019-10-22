@@ -28,12 +28,12 @@ It must have all the fields not empty to understand if the report is true or fak
 \subsection{Product functions}
 Considering the objectives requested by SafeStreets, main functions are described below:
 
-\subsubsection{Notify Traffic Violations}
+\subsubsection{Notify Traffic Violations RE.1}
 The main requirement of the application is to provide users a smart and effortless tool to authorities when traffic violations occur.
 
 Users are able to select the type of violation, providing the name of the street and upload a picture containing the license plate that will be read by an algorithm.
 
-\subsubsection{License Plate Recognition}
+\subsubsection{License Plate Recognition RE.2}
 License plate recognition functionality is crucial for SafeStreets, from the license plate we can get information about the owner, the vehicle and its specs.
 
 The fact that there isn't a human being responsible for manually recognizing license plates is important for the scalability, when the application will be used on a large scale.
@@ -42,13 +42,13 @@ Automatic number-plate recognition (ANPR) technology consists in seven primary a
 
 Due to the fact that the image will be widely analyzed, it must be in high resolution with no blur and in a good lighting context.
 
-\subsubsection{Data Collection}
+\subsubsection{Data Collection RE.3}
 Due to the fact that data is the most valuable asset of modern industry, data collection is important for all statistics, information and data visualization SafeStreets provide.
 
 It collects data coming from different sources: users inputs, municipality and police databases.
 Data collection involve several practices about correctness and security.
 
-\subsubsection{Data Visualization}
+\subsubsection{Data Visualization RE.4}
 A part of the application is dedicated to data visualization by showing a map on which the streets/areas are colored according to the frequency of violations compared to the average violations: 
 \begin{itemize}
 \item red = high
@@ -59,21 +59,21 @@ A part of the application is dedicated to data visualization by showing a map on
 
 Also there is a part of the UI where users and authorities can see statistics about vehicles and violations.
 
-\subsubsection{Data Sets Analysis}
+\subsubsection{Data Sets Analysis RE.5}
 The functionality of data analysis is crucial for finding patterns in data sets.
 
-\subsubsection{Suggest Possible Interventions}
+\subsubsection{Suggest Possible Interventions RE.6}
 Thanks to data sets analysis, SafeStreets can suggest possible interventions for already identified "high-violation" streets.
 
 For each violation is assigned one or more interventions that will help to decrease the occurrence of violations.
 
 
-\subsubsection{Information Integrity}
+\subsubsection{Information Integrity RE.7}
 Data integrity is defined as maintenance and assurance of data consistency over its entire life-cycle.
 
 Ensuring that data are correct and information are never altered is important, because local police could take the information about the violations coming from SafeStreets, and generate traffic tickets from it.
 
-\subsubsection{Generating Traffic Tickets}
+\subsubsection{Generating Traffic Tickets RE.8}
 This functionality is not an internal feature of the application. 
 
 Our scope is to provide the police, data about violations and with this information the municipality could generate traffic tickets.

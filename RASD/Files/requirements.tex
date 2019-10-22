@@ -1,7 +1,7 @@
 
 \subsection{External Interface Requirements}
 \subsubsection{Software interfaces}
-The system fuctionalities are provided without using third part application.
+The system fuctionalities are provided without using third part application except for the CUU (Codice Univoco Ufficio) verification. This functions is made by an external web service provided by IndicePA. The code is required during the authorities registration to ensure their identity.
 The external API are exposed only for authorities application and the implentation details will be shown in the design document.
 
 \subsection{Design constraints}
@@ -247,4 +247,30 @@ There could be maintenance interventions, when it's possible there will be in th
 There will be released updates, both for application and system.
 \subsubsection{Portability}
 The entire system is portable, every user (citizen or local authority) can access to their profile, see data, statisthics and make reports of violation from their mobile or their tablet, not especially from PCs.
+\subsection{Mapping on requirements}
+\begin{center}
+	\begin{tabular}{ | l | p{2cm} | p{2cm}| p{2cm}|} 
+		\hline
+		 RawID & GoalID & ReqID & Use Case ID \\
+		\hline
+		1&G1&RE.1&Scenario 2/3\\
+		\hline
+		2&G2.1&RE.2&\\
+		\hline
+		3&G2&RE.3&\\
+		\hline
+		4&G3.1&RE.4&Scenario 6\\
+		\hline
+		5&G3&RE.5&\\
+		\hline
+		6&G4&RE.6&\\
+		\hline
+		7&G5&RE.7&Scenario 8\\
+		\hline
+		8&G2&RE.8&Scenario 9\\
+		\hline
+	\end{tabular}
+\end{center}
+
+
  
