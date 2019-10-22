@@ -50,4 +50,187 @@ The system recieves the photos from the users and have to check if they are true
 \subsubsection{Scenario 9}
 The local authority have to relase a traffic ticket in case of a user made an infringement. The platform auto-generate the trafic tickets when a report result real, and the local authority recieve a notify.
 
+\subsection{Description of use case scenarios}
+\subsubsection{Description scenario 1}
+
+
+\begin{center}
+	\begin{tabular}{ | l | p{6cm} | } 
+		\hline
+		ACTORS & User  \\ 
+		\hline
+		GOALS & Sign up  \\ 
+		\hline
+		INPUT CONDITION & Personal data (name, surname, mail, telephone number, place where he lives, car license plate etc.)  \\ 
+		\hline
+		EVENTS FLOW & The user from the home page clicks on sign up. He inserts all of his information and if it is all correct he will recive an email of confirm.  \\ 
+		\hline
+		OUTPUT CONDITION & The user can now log in and use all the function that the user can do on the platform.  \\ 
+		\hline
+		EXCEPTIONS & Data incorrect, user already exists, mail already exists. All of this exceptions will be notified instantly to the user. \\ 
+		\hline
+	\end{tabular}
+\end{center}
+
+\subsubsection{Description scenario 2}
+
+\begin{center}
+	\begin{tabular}{ | l | p{6cm} | } 
+		\hline
+		ACTORS & User  \\ 
+		\hline
+		GOALS & Report a violation  \\ 
+		\hline
+		INPUT CONDITION & Type of violation (double row park), name of the street,  \\ 
+		\hline
+		EVENTS FLOW & The user take a picture of the car that has done the violation. The system use an algorithm to read the car license plate and then store all the informations once it is established that the photo isn't fake.  \\ 
+		\hline
+		OUTPUT CONDITION & The violation has been stored with all the data, it will be generated a traffic ticket, and the local authority can decide to highlight who has made the violation or the street. \\ 
+		\hline
+		EXCEPTIONS & Data incorrect or fake photo. The report will be discarded and no traffic ticket will be generated.  \\ 
+		\hline
+	\end{tabular}
+\end{center}
+
+\subsubsection{Description scenario 3}
+
+\begin{center}
+	\begin{tabular}{ | l | p{6cm} | } 
+		\hline
+		ACTORS & User  \\ 
+		\hline
+		GOALS & Report a violation  \\ 
+		\hline
+		INPUT CONDITION & Type of violation (wrong park), name of the street,  \\ 
+		\hline
+		EVENTS FLOW & The user take a picture of the car that has done the violation. The system use an algorithm to read the car license plate and then store all the informations once it is established that the photo isn't fake.  \\ 
+		\hline
+		OUTPUT CONDITION & The violation has been stored with all the data, it will be generated a traffic ticket, and the local authority can decide to highlight who has made the violation or the street. \\ 
+		\hline
+		EXCEPTIONS & Data incorrect or fake photo. The report will be discarded and no traffic ticket will be generated.  \\ 
+		\hline
+	\end{tabular}
+\end{center}
+
+\subsubsection{Description scenario 4}
+
+\begin{center}
+	\begin{tabular}{ | l | p{6cm} | } 
+		\hline
+		ACTORS & User  \\ 
+		\hline
+		GOALS & Check report status  \\ 
+		\hline
+		INPUT CONDITION & User credentials  \\ 
+		\hline
+		EVENTS FLOW & The user log in into the platform. He accesses to his personal area and he can check the status of his report \\ 
+		\hline
+		OUTPUT CONDITION & Report status \\ 
+		\hline
+		EXCEPTIONS & The user hasn't made any report. The system show a messagge that the list of the reports is empty.  \\ 
+		\hline
+	\end{tabular}
+\end{center}
+
+\subsubsection{Description scenario 5}
+
+\begin{center}
+	\begin{tabular}{ | l | p{6cm} | } 
+		\hline
+		ACTORS & User  \\ 
+		\hline
+		GOALS & Check his profile  \\ 
+		\hline
+		INPUT CONDITION & User credentials  \\ 
+		\hline
+		EVENTS FLOW & The user log in into the platform. He accesses to his personal area and he can check if his car has recieved some report \\ 
+		\hline
+		OUTPUT CONDITION & Car status \\ 
+		\hline
+		EXCEPTIONS & The user hasn't a car or hasn't recived any report. The system show a messagge that there isn't any report.  \\ 
+		\hline
+	\end{tabular}
+\end{center}
+
+\subsubsection{Description scenario 6}
+
+\begin{center}
+	\begin{tabular}{ | l | p{6cm} | } 
+		\hline
+		ACTORS & Local authority  \\ 
+		\hline
+		GOALS & Check streets status  \\ 
+		\hline
+		INPUT CONDITION & Local authority credentials  \\ 
+		\hline
+		EVENTS FLOW & The authority log in into the platform. He accesses to his personal area and he can check the streets status \\ 
+		\hline
+		OUTPUT CONDITION & Different colors for the streets based on their status and possibly changes to the color of some streets \\ 
+		\hline
+		EXCEPTIONS & none \\ 
+		\hline
+	\end{tabular}
+\end{center}
+
+\subsubsection{Description scenario 7}
+
+\begin{center}
+	\begin{tabular}{ | l | p{6cm} | } 
+		\hline
+		ACTORS & Local authority  \\ 
+		\hline
+		GOALS & Check cars status  \\ 
+		\hline
+		INPUT CONDITION & Local authority credentials  \\ 
+		\hline
+		EVENTS FLOW & The authority log in into the platform. He accesses to his personal area and he can check the cars status based on reports \\ 
+		\hline
+		OUTPUT CONDITION & Different colors for the cars based on how many reports they recived and possibly changes to the color of some cars \\ 
+		\hline
+		EXCEPTIONS & none \\ 
+		\hline
+	\end{tabular}
+\end{center}
+
+\subsubsection{Description scenario 8}
+
+\begin{center}
+	\begin{tabular}{ | l | p{6cm} | } 
+		\hline
+		ACTORS & SafeStreets  \\ 
+		\hline
+		GOALS & Check the reliability of the photo  \\ 
+		\hline
+		INPUT CONDITION & Photo that has been taken by a user.  \\ 
+		\hline
+		EVENTS FLOW & The system recives from the user a photo of a possibile violation. It runs an algorithm that can establish if it is real or fake. \\ 
+		\hline
+		OUTPUT CONDITION & The photo is real of fake. \\ 
+		\hline
+		EXCEPTIONS & none \\ 
+		\hline
+	\end{tabular}
+\end{center}
+
+\subsubsection{Description scenario 9}
+
+\begin{center}
+	\begin{tabular}{ | l | p{6cm} | } 
+		\hline
+		ACTORS & SafeStreets  \\ 
+		\hline
+		GOALS & Generate trafic tickets  \\ 
+		\hline
+		INPUT CONDITION & Report  \\ 
+		\hline
+		EVENTS FLOW & If the report is real than it could be generated the trafic ticket based on the type of violation the user has committed. \\ 
+		\hline
+		OUTPUT CONDITION & Trafic ticket \\ 
+		\hline
+		EXCEPTIONS & The report is fake, nothing is generated. \\ 
+		\hline
+	\end{tabular}
+\end{center}
+
+
  
