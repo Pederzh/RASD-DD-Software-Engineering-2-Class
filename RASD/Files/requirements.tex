@@ -1,8 +1,57 @@
 
 \subsection{External Interface Requirements}
+\subsubsection{User interfaces}
+The following mocks describe the application UI create after the process (UX) of defining how users interact with SafeStreet:
+
+	\begin{figure}[H]
+		\centering
+		\begin{minipage}[b]{0.40\textwidth}
+			\includegraphics[width=\textwidth]{Images/login.png}
+			\caption{Login form}
+		\end{minipage}
+		\hfill
+		\begin{minipage}[b]{0.4\textwidth}
+			\includegraphics[width=\textwidth]{Images/registration.png}
+			\caption{Registration form}
+		\end{minipage}
+	\end{figure}
+	
+		\begin{figure}[H]
+		\centering
+		\begin{minipage}[b]{0.40\textwidth}
+			\includegraphics[width=\textwidth]{Images/report.png}
+			\caption{User send violation report}
+		\end{minipage}
+		\hfill
+		\begin{minipage}[b]{0.4\textwidth}
+			\includegraphics[width=\textwidth]{Images/violationsMap.png}
+			\caption{Map showing violations}
+		\end{minipage}
+	\end{figure}
+
+	\begin{figure}[H]
+	\centering
+	\begin{minipage}[b]{0.40\textwidth}
+		\includegraphics[width=\textwidth]{Images/interventions.png}
+		\caption{Suggestion for possible interventions}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[b]{0.4\textwidth}
+		\includegraphics[width=\textwidth]{Images/vehicle.png}
+		\caption{Violations by vehicle}
+	\end{minipage}
+\end{figure}
+
+\subsubsection{Hardware interfaces}
+
 \subsubsection{Software interfaces}
-The system fuctionalities are provided without using third part application except for the CUU (Codice Univoco Ufficio) verification. This functions is made by an external web service provided by IndicePA. The code is required during the authorities registration to ensure their identity.
+The system functionalities are provided without using third part application except for the CUU (Codice Univoco Ufficio) verification. This functions is made by an external web service provided by IndicePA. The code is required during the authorities registration to ensure their identity.
 The external API are exposed only for authorities application and the implentation details will be shown in the design document.
+
+\subsubsection{Communication interfaces}
+Any communication functionality takes place via internet with HTTP protocol.
+More in details, the protocol used is HTTPS, to allow protection and privacy.
+This protocol will be used for both access to the web-application and REST communication.
 
 \subsection{Design constraints}
 \subsubsection{Standards compliance}
