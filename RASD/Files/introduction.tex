@@ -1,6 +1,6 @@
 \subsection{Purpose}
 This document aim is to describe Safestreet functionalities and requirements.
-The main goal of Safestreets is to provide authorities with a tool to control the traffic violations and, in particular, parking violations. The role of citizens is crucial because they send pictures of violations using the system. Safestreets have to store these information and elaborate it before notify authorities.
+The main goal of SafeStreets is to provide authorities a tool to control the traffic violations and, in particular, parking violations. The role of citizens is crucial because they send pictures of violations using the system. SafeStreets have to store these information and elaborate it before notify authorities.
 The elaboration of the information is focused on retrieving some specific data such as:
 \begin{itemize}
 	\item
@@ -12,18 +12,19 @@ The elaboration of the information is focused on retrieving some specific data s
 	\item 
 	the most unsafe areas and the possible solutions to improve the situation
 \end{itemize}
-In addition Safestreets offers to the municipality the data in order to generate traffic tickets. Furthermore the traffic tickets informations are used to build statistics regarding the effective impact of this initiative.
+In addition SafeStreets offers to the municipality the data in order to generate traffic tickets. Furthermore the traffic tickets informations are used to build statistics regarding the effective impact of this initiative.
 An other important aspect is that the application need to ensure the chain of custody of the information coming from the user.
 \subsubsection{Goals}
 \begin{itemize}
 	\item
-	[G1] allow a user to send photos and information about a traffic violations
+	[G1] allow users to send photos and information about a traffic violations
 	\item 
 	[G2] elaborate received data and generate notifications
 		\subitem 
-		[G2.1] retrive the license plates from photos
+		[G2.1] retrieve the license plates from photos
 		\subitem
 		[G2.2] retrieve addresses
+		[G2.3] ensure the picture reliability
 	\item
 	[G3] calculate statistics
 		\subitem
@@ -39,8 +40,8 @@ An other important aspect is that the application need to ensure the chain of cu
 		
 \end{itemize}
 \subsection{Scope}
-The scope where Safestreets works is tipically the urban enviroment. The main events caused by the world are violations, authorities requiring for statistics and accidents.
-The shared phenomena consist in the photos arriving form users, the notifications, the presentation of data and statistics and the municipality sending accindents information.  
-The main actors that interact with the application are users, municipality and authorities in general.
-It is important to consider that a minimun resolution of the photos taken by the users is one of the biggest constraint the system have to deal with.
+The scope where SafeStreets works is typically the urban environment. The main events caused by the world are violations, authorities requiring for statistics and accidents.
+The shared phenomena are pictures arriving from users, notifications, the data and statistics visualization, and lastly municipality sending information about accidents.  
+The main actors that interact with the application are users and municipality/authorities in general.
+It is important to consider that a minimum resolution of the pictures taken by the users is one of the biggest constraint the system have to deal with.
 %what you write here is a comment that is not shown in the final text
