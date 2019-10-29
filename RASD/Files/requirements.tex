@@ -46,13 +46,24 @@ The following mocks describe only the generic application screen design:
 \end{figure}
 
 \subsubsection{Hardware interfaces}
-<1027: Error displaying this part of the document>
+
 
 \subsubsection{Software interfaces}
-The system functionalities are provided without using third part application, except for the \textit{CUU (Codice Univoco Ufficio)} verification. 
+The system functionalities are provided with the usage of some external web services:
 
-This function is made by an external web service provided by \textit{IndicePA}. The code is required during the authorities registration to ensure their identity.
+\paragraph{Google Maps}
+Google Maps library is used in the page that shows the map.
+Furthermore, Google Maps APIs are used to transform addresses in coordinates and vice versa.
+
+
+\paragraph{Vehicle model identification}
+Using an external web service, SafeStreets is able to retrieve information about the vehicles from the license plate number.
+This data will be show in statistics about violations by vehicles.
+
+\paragraph{IndicePA}
+The \textit{CUU (Codice Univoco Ufficio)} verification is made by an external web service provided by \textit{IndicePA}. The code is required during the authorities registration to ensure their identity.
 The external API are exposed only for authorities application and the implementation details will be shown in the design document (DD).
+
 
 \subsubsection{Communication interfaces}
 Any communication functionality takes place via internet with HTTPS to allow protection and privacy.
