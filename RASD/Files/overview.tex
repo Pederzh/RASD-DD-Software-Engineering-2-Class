@@ -1,6 +1,17 @@
 \subsection{Product perspective}
 
-\subsubsection{Domain function}
+\subsubsection{Further details on shared phenomena}
+
+\paragraph{Report:}
+is composed by the picture regarding violation and by its metadata: type, road or GPS coordinates, date-time and so forth.
+The report transfer is done via HTTPS, in order to be encrypted since it contains private data.
+Once it is received, the algorithm checks the picture trustfulness.
+
+\paragraph{Authority notification:} it has to contain the data of the violation that authorities can use to generate traffic tickets.
+
+\paragraph{Data and statistics visualization:} crossed data about violations and accidents are used to create the map with colored road according to the number of violations.
+
+\subsubsection{Domain model}
 
 The platform has to manage different entities. Some of them are linked and they shared data and function.
 The entities are: 
@@ -9,9 +20,9 @@ The entities are:
 \item Local authorities
 \item Reports about possible violations (now defined as Report)
 \item Real violations
-\item Traffic tickets
 \item Statistics
 \end{itemize}
+
 
 When the user see a parking violation, he could take a picture of the involved car (is important that the license plate is visible) and sends it to the system with all the relative information about the type of violation and the road.
 
@@ -24,16 +35,16 @@ Furthermore, they can analyze which are unsafe areas or the vehicles that commit
 Results are also available inside SafeStreets.
 The same operation is done automatically by the platform, crossing reports from users and accidents information provided by authorities.
 
-\subsubsection{Further details on shared phenomena}
 
-\paragraph{Report:}
-is composed by the picture regarding violation and by its metadata: type, road or GPS coordinates, date-time and so forth.
-The report transfer is done via HTTPS, in order to be encrypted since it contains private data.
-Once it is received, the algorithm checks the picture trustfulness.
+\subsubsection{Class diagram}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1.12\linewidth]{Images/ClassDiagram.png}
+	\caption{Class Diagram}
+\end{figure}
+The association between Report and Street is optional because we retrieve the position of the report automatically using GPS. Only in case of problem with this operation, we require the address to the user. In this case, SafeStreets calulates the coordinates using the address provided by the user.
+\subsubsection{Statechart}
 
-\paragraph{Authority notification:} it has to contain the data of the violation that authorities can use to generate traffic tickets.
-
-\paragraph{Data and statistics visualization:} crossed data about violations and accidents are used to create the map with colored road according to the number of violations.
 
 \subsection{Product functions}
 Considering the objectives requested by SafeStreets, main functions are described below:
