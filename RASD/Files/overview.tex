@@ -42,9 +42,19 @@ The same operation is done automatically by the platform, crossing reports from 
 	\includegraphics[width=1.12\linewidth]{Images/ClassDiagram.png}
 	\caption{Class Diagram}
 \end{figure}
-The association between Report and Street is optional because we retrieve the position of the report automatically using GPS. Only in case of problem with this operation, we require the address to the user. In this case, SafeStreets calulates the coordinates using the address provided by the user.
+The association between Report and Street is optional because we retrieve the position of the report automatically using GPS. Only in case of problem with this operation, we require the address to the user. In this case, SafeStreets calulates the coordinates using the address provided by the user. We use the andress also in case of report made in a place different from the one where the violation occurred. 
 \subsubsection{Statechart}
-
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1.12\linewidth]{Images/ReportLifeCycle.png}
+	\caption{Report life cycle}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1.12\linewidth]{Images/StreetLifeCycle.png}
+	\caption{Street life cycle}
+\end{figure}
+\newpage
 
 \subsection{Product functions}
 Considering the objectives requested by SafeStreets, main functions are described below:
@@ -133,6 +143,9 @@ Also they can provide their data to SafeStreets, in this way our platform is abl
 	\subitem
 	Double parking
 	\subitem
+	Disable parking
+	\subitem
+	Bike lane parking
 \end{itemize}
 
 
