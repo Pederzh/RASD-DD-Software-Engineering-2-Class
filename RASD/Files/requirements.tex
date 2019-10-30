@@ -45,7 +45,7 @@ The following mocks describe only the generic application screen design:
 \end{figure}
 
 \subsubsection{Hardware interfaces}
-
+There are no hardware interfaces.
 
 \subsubsection{Software interfaces}
 The system functionalities are provided with the usage of some external web services:
@@ -106,18 +106,18 @@ Paul wants to sign up to SafeStreets platform. He has to insert his personal dat
 \subsubsection{Scenario 2}
 Bob is coming back to his car when he notice that someone double parked and he can’t go out from the parking. 
 
-He logs in into the SafeStreets and he takes a picture of the car to report it to the platform which will analyzes the report.
+He logs in into the SafeStreets and he takes a picture of the car. Then he has to insert the information about the violation: type of violation and route where the violation happened. Once Bob has added the data he can send the report.
 
 \subsubsection{Scenario 3}
 Luke is walking on the sidewalk when he see that a man is parking on a park reserved for disable.
-Luke takes a picture of the car and report it to the SafeStreets platform which analyzes the report,
+Luke logs in into the SafeStreets and he takes a picture of the car. Then he has to insert the information about the violation: type of violation and route where the violation happened. Once Luke has added the data he can send the report.
 
 \subsubsection{Scenario 4}
 Mark has submitted a report to the platform, and he wants to check if it has been accepted or declined.
 He logs in into the app, he goes to his reserved area and next to his report there is the status of message sent.
 
 \subsubsection{Scenario 5}
-An accidents in via Anzani occurs, the municipality system records the information about.
+An accidents in via Anzani occurs, the municipality system records the information about it.
 SafeStreets is able to retrieve a portion of these data and cross it with violations information, in order to generate statistics.
 
 \subsubsection{Scenario 6}
@@ -163,7 +163,7 @@ The system receives pictures from the users and have to check if they are reliab
 		\hline
 		INPUT CONDITION & Type of violation (double row park), name of the street,  \\ 
 		\hline
-		EVENTS FLOW & The user take a picture of the car that has done the violation. The system use an algorithm to read the car license plate and then store all the informations once it is established that the photo isn't fake.  \\ 
+		EVENTS FLOW & The user take a picture of the car that has done the violation. He insert the type of violation and the route where it happened. The system use an algorithm to read the car license plate and then store all the informations once it is established that the photo isn't fake.  \\ 
 		\hline
 		OUTPUT CONDITION & The violation has been stored with all the data, it will be generated a traffic ticket, and the local authority can decide to highlight who has made the violation or the street. \\ 
 		\hline
@@ -183,7 +183,7 @@ The system receives pictures from the users and have to check if they are reliab
 		\hline
 		INPUT CONDITION & Type of violation (wrong park), name of the street,  \\ 
 		\hline
-		EVENTS FLOW & The user take a picture of the car that has done the violation. The system use an algorithm to read the car license plate and then store all the informations once it is established that the photo isn't fake.  \\ 
+		EVENTS FLOW & The user take a picture of the car that has done the violation. He insert the type of violation and the route where it happened. The system use an algorithm to read the car license plate and then store all the informations once it is established that the photo isn't fake.  \\ 
 		\hline
 		OUTPUT CONDITION & The violation has been stored with all the data, it will be generated a traffic ticket, and the local authority can decide to highlight who has made the violation or the street. \\ 
 		\hline
@@ -217,17 +217,17 @@ The system receives pictures from the users and have to check if they are reliab
 \begin{center}
 	\begin{tabular}{ | l | p{6cm} | } 
 		\hline
-		ACTORS & User  \\ 
+		ACTORS & Authority, SafeStreets  \\ 
 		\hline
-		GOALS & Check his profile  \\ 
+		GOALS & Generate statistics  \\ 
 		\hline
-		INPUT CONDITION & User credentials  \\ 
+		INPUT CONDITION & The authority inserts data about an accident. \\ 
 		\hline
-		EVENTS FLOW & The user log in into the platform. He accesses to his personal area and he can check if his car has recieved some report \\ 
+		EVENTS FLOW & The authority add the data about an accident in their system. SafeStreets retrieve these data generate statistic for the authority. \\ 
 		\hline
-		OUTPUT CONDITION & Car status \\ 
+		OUTPUT CONDITION & Accident and violation statistics\\ 
 		\hline
-		EXCEPTIONS & The user hasn't a car or hasn't recived any report. The system show a messagge that there isn't any report.  \\ 
+		EXCEPTIONS & There are no exceptions  \\ 
 		\hline
 	\end{tabular}
 \end{center}
@@ -237,7 +237,7 @@ The system receives pictures from the users and have to check if they are reliab
 \begin{center}
 	\begin{tabular}{ | l | p{6cm} | } 
 		\hline
-		ACTORS & Local authority  \\ 
+		ACTORS & Authority  \\ 
 		\hline
 		GOALS & Check streets status  \\ 
 		\hline
@@ -257,7 +257,7 @@ The system receives pictures from the users and have to check if they are reliab
 \begin{center}
 	\begin{tabular}{ | l | p{6cm} | } 
 		\hline
-		ACTORS & Local authority  \\ 
+		ACTORS & Authority  \\ 
 		\hline
 		GOALS & Check cars status  \\ 
 		\hline
@@ -292,25 +292,7 @@ The system receives pictures from the users and have to check if they are reliab
 	\end{tabular}
 \end{center}
 
-\subsubsection{Description scenario 9}
 
-\begin{center}
-	\begin{tabular}{ | l | p{6cm} | } 
-		\hline
-		ACTORS & SafeStreets  \\ 
-		\hline
-		GOALS & Generate trafic tickets  \\ 
-		\hline
-		INPUT CONDITION & Report  \\ 
-		\hline
-		EVENTS FLOW & If the report is real than it could be generated the trafic ticket based on the type of violation the user has committed. \\ 
-		\hline
-		OUTPUT CONDITION & Trafic ticket \\ 
-		\hline
-		EXCEPTIONS & The report is fake, nothing is generated. \\ 
-		\hline
-	\end{tabular}
-\end{center}
 \newpage
 \subsection{Sequence diagram}
 \subsubsection{Scenario 2}
