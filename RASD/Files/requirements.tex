@@ -375,6 +375,15 @@ For this reason is used HTTPS protocol to transmit data from user to SafeStreets
 
 Every account must have a strong password with the combination of upper-case, lower-case letters and numbers.
 
+\paragraph{Chain of custody}
+\hfill
+
+The system have to guarantee the chain of custody, thus SafeStreets needs to ensure that the data received from the users are genuine.
+
+In order to implement this feature the system checks the authenticity of the pictures recived before creating and storing new reports.
+
+In this way we have the certainty that the data stored are reliable and all the other portions of the system can work without deal with this aspect (for them it is trasparent).
+
 \subsubsection{Maintainability}
 The system is developed to be compatible with other platform, like the system of the local authority.
 There could be maintenance interventions, when it's possible there will be in the hours with the less use of the platform (e.g. midnight).
