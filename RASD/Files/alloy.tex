@@ -56,19 +56,26 @@ For this reason there is no constraint in Alloy that checks the fact that the re
 \subsection{Predicates testing}
 \subsubsection{World 1}
 Predicate about the aggregation of data coming from reports with the traffic information.
+
+This predicate describes the constraint that the signature that represent statistics can only exist if and only if there is at least one report or accident.
+Furthermore all reports and all accidents must be related to statistics.
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.9\linewidth, height=0.15\textheight]{Images/Alloy/test-world11}
 	\caption{Pred 1}
 	\label{Pred 1}
 \end{figure}
-
+\FloatBarrier
+To show that the predicate works as expected, we have run the predicate with with inconsistent number of sig entities: exactly of  0 reports and 0 accidents but 1 GroupedStatistic
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.9\linewidth, height=0.12\textheight]{Images/Alloy/test-world12}
 	\caption{Result pred 1}
 	\label{Result pred 1}
 \end{figure}
+\FloatBarrier
+\newpage
+The following represented world is generated from the following run: run groupedStatisticsHasAllReportsAndAccindets for 5 but exactly 1 GroupedStatistics, exactly 5 Report, exactly 2 Accident
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.9\linewidth, height=0.5\textheight]{Images/Alloy/world1}
@@ -76,22 +83,28 @@ Predicate about the aggregation of data coming from reports with the traffic inf
 	\label{World1 }
 \end{figure}
 \FloatBarrier
+\newpage
 \subsubsection{World 2}
 Consistency between city and statistics.
+
+This predicate describes the constraint that the signature that represent statistics specific about a city and all reports about all streets of the city must be related.
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.9\linewidth, height=0.15\textheight]{Images/Alloy/test-world21}
 	\caption{Pred 2}
 	\label{Pred 2}
 \end{figure}
-
+\FloatBarrier
+To show that the predicate works as expected, we have run the predicate with with inconsistent number of sig entities: exactly 0 CityStatistic, exactly 3 Report.
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.9\linewidth, height=0.11\textheight]{Images/Alloy/test-world22}
 	\caption{Result pred 2}
 	\label{Result pred 2}
 \end{figure}
-
+\FloatBarrier
+\newpage
+The following represented world is generated from the following run: run reportFromSameCityInCityStatistic for 4 but exactly 2 CityStatistic, exactly 2 Report, 2 City
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=1\linewidth, height=0.47\textheight]{Images/Alloy/world2}
@@ -99,6 +112,7 @@ Consistency between city and statistics.
 	\label{World2}
 \end{figure}
 \FloatBarrier
+\newpage
 \subsubsection{World 3}
 Predicate that test if the licenseplate retrieve from SafeStreets is the same suggested by the user.
 \begin{figure}[h]
@@ -114,8 +128,9 @@ Predicate that test if the licenseplate retrieve from SafeStreets is the same su
 	\caption{Result pred 3}
 	\label{Result pred 3}
 \end{figure}
-
-
+\FloatBarrier
+\newpage
+The following represented world is generated from the following run: run licenseplateHaveSameValueOfLicenseplateHelper for 5 but exactly 3 Report
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=1.1\linewidth, height=0.55\textheight]{Images/Alloy/world3alloy}
