@@ -61,3 +61,22 @@ There are also subcomponents that perform specific operations and interact with 
 \end{figure}
 
 \subsection{Deployment view}
+In the deployment diagram below it is possible to see the physical implementation of the system.
+SafeStreets is composed by 3 nodes:
+\begin{itemize}
+	\item 
+	First tier: represent the thin clien that make HTTP requests. It is used by users for sending reports and by authorities in order to see statistics.
+	\item 
+	Second tier: is made by the web server and the appliaction server. The first one is responsible of the catching of the HTTP requests coming from the clients. The web server read the requests and call the appropriate method exposed by the application server. The real computation of the requests is done here.
+	When data stored are required, the application server communicates with the third tier.
+	\item 
+	Second tier: this tier represent the database of the system. 
+\end{itemize} 
+
+In the diagram there is also an other node that corresponds with the authority system in charge of retrieving reports to generate traffic tickets. The application server exposes a interface that provides this function. 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1.12\linewidth]{Images/Deployment.png}
+	\caption{Deployment diagram}
+\end{figure}
