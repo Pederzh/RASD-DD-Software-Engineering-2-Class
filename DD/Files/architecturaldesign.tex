@@ -80,3 +80,98 @@ In the diagram there is also an other node that corresponds with the authority s
 	\includegraphics[width=1.12\linewidth]{Images/Deployment.png}
 	\caption{Deployment diagram}
 \end{figure}
+
+\subsection{Runtime view}
+
+\subsection{Component interfaces}
+
+The interfaces exposed are manly 2, SystemManagerInterface and DataSenderInterface. Their role was explained in the previuos sections of this document.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1.12\linewidth]{Images/ComponentInterfaces.png}
+	\caption{Component interfaces}
+\end{figure}
+
+
+Here the focus is on the feature provided by the methods exposed.
+
+\subsubsection{SystemManagerInterface}
+
+\begin{itemize}
+	\item 
+	User login(String user, String password)
+	
+	is the method in charge of checking of the idenitity of the user/authority that want to log in the application. It returns the object User if the login process was succefully done, if it is not the object is null. The application server checks the type of User object returned and then generate the relative web page (user page or authority page) to return to the client.
+	The method works invoking methods of UserManger class.
+	
+	\item 
+	User register(String user, String password, String mail, String name, String surname)
+	
+	This method does the registration of a normal user and returns the User object as login method. Since the user has to be univocal the process can abort, in this case a null object is returned.
+	Reading the returned object, the web server will generate the proper web page.
+	The method works invoking methods of UserManger class.
+	
+	\item 
+	User register(String user, String password, String mail, String name, String CUU, String city)
+	
+	This method does the registration of an authority user and returns the User object as login method. Since the user has to be univocal and the CUU is checked (via Web Service) here, the process can abort, in this case a null object is returned.
+	Reading the returned object, the web server will generate the proper web page.
+	The method works invoking methods of UserManger class.
+	
+	\item
+	 Bool recieveReport(String picture, Double latitute, Double longitude, String Violation, String violation, String licenseplate, String user, String city, String streetName)
+	 
+	 This method creates the report. During this process all the checkings concerning the autenticity of the picture are performed and the coordinates are tarsformed into street name and city. In case the operations ends successfully, the proper objects (Report, Vehicle, Street) are created or associated (Violation, User) and then all data will be stored in the database. The picture name will be renamed with an univocal key made on date, time and user. A true value is returned.
+	 In case of bad result of the checkings on the authenticity, a false value will be returned.
+	 According to the value returned by the method, the web server will generate the proper web page.
+	 These operations will be performed using methods of ViolationManager, UserManager, ReportManager, VehicleManager and  StreetManager methods.
+	 
+	 \item
+	List<Integer> showStatistics (String user, String city)
+	
+	This method before generating statiscs redgarding the city, checks the identity of the user. 
+	If the username does not correspond to an authority, it returns a null value.
+	Otherwise it generates statistics using data of reports and accidents in the city.
+	According to the result of the method the web server generate the proper web page.
+	This method works using UserManger and StatisticManager classes.
+	
+	\item 
+	Bool addSuggestion (String user, String description)
+	
+	This method before adding the suggestion, checks the identity of the user. 
+	If the username does not corresponds to an authority, it returns a false value.
+	Otherwise it adds the suggestion to the list and returns true.
+	According to result of the method the web server generate the proper web page.
+	This method wors using UserManger and SuggestionManager classes.
+	
+	\item 
+	Bool addViolationType(String user, String descrption)
+	
+	This method has the same behaviour of the previus one regarding the suggestions.
+	
+	\item 
+	Bool modifyUserData(String oldPassword, String email, String newpassword)
+	
+	The method update the data if the username exists and the old password is correct, then
+	a boolean value. According to it the web server create the web page.
+	The method use UserManager class to perfom that opertaion.
+\end{itemize}
+
+\subsubsection{SystemManagerInterface}
+
+The only method of this interface is sendReports:
+\hfill
+
+List<Report> sendReport (String username, String password, String city, Date date)
+
+
+
+The method checks the identity using the usename and the password. If it results a profile of an authority, a list of report done in the city on that date is provided to the caller. Otherwise a null value is returned.
+The process works using ReportManager class and without involving the web server.
+
+
+
+
+
+
