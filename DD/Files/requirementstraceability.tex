@@ -1,0 +1,43 @@
+\begin{itemize}
+	\item
+	\textbf{R1}: The system have to allow users to send photos and information about a traffic violations. \\
+	\textbf{DataSender}: manages the reports that the users create and enable them to send it to the web platform. A report will contain: the type of violation, the licenseplate of the vehicle that commit the violation and the street where it happened.
+	
+	\item 
+	\textbf{R2.1}:The system must be able to retrieve the license plates from photos. \\
+	\textbf{ReportManager}: it contains all the methods to retrieve the license plate from the photos and/or from the user input. 
+	
+	\item 
+	\textbf{R2.2}:The platform have to retrieve the street where the violation occured. \\
+	\textbf{ReportManager}: it has all the methods to retrieve the street from the GPS and/or from the user input. 
+	
+	\item 
+	\textbf{R2.3}:The platform must be able to ensure the picture reliability. \\
+	\textbf{NON SO QUALE CLASSE LO FACCIA} CREATEREPORT
+	
+	\item 
+	\textbf{R3.1}:The system have to locate the most unsafe areas. \\
+	\textbf{StatisticManager}: it contains the method to show the most unsafe areas with the data provided by the \textbf{ReportManager} and by the \textbf{AccidentManager}.
+	
+	\item 
+	\textbf{R3.2}:The system must be able to show the impact of the application in terms of number of violations. \\
+	\textbf{ANCHE QUA NON SO} CREATE STATISTIC
+	
+	\item 
+	\textbf{R3.3}:The platform have to generate other type of statistics like the most egregious offenders. \\
+	\textbf{StatisticManager} can displays the statistics of the most offenders, the data can be retrieved through the \textbf{ReportManager} that permit to get the username of the user that commit the most number of violation and then using the \textbf{UserManager} is possible to retrieve name and surname of the user from then username.
+	
+	
+	\item 
+	\textbf{R4}:The platform must be able to suggest possible interventions. \\
+	The \textbf{SuggestionManager} allow to provide the suggestion based on the type of violation commited by the user.
+	
+	\item 
+	\textbf{R5}:The system have to guarantee data integrity. \\ 
+	The \textbf{SystemManager} can guarantee the data integrity.
+	
+	
+	
+	
+	
+\end{itemize}

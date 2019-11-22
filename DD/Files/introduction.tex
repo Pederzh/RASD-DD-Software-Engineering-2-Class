@@ -1,24 +1,52 @@
-This document has been prepared to help you approaching Latex as a formatting tool for your Travlendar+ deliverables. This document suggests you a possible style and format for your deliverables and contains information about basic formatting commands in Latex. A good guide to Latex is available here \href{https://tobi.oetiker.ch/lshort/lshort.pdf}{https://tobi.oetiker.ch/lshort/lshort.pdf}, but you can find many other good references on the web. 
-
-Writing in Latex means writing textual files having a \texttt{.tex} extension and exploiting the Latex markup commands for formatting purposes. Your files then need to be compiled using the Latex compiler. Similarly to programming languages, you can find many editors that help you writing and compiling your latex code. Here \href{https://beebom.com/best-latex-editors/}{https://beebom.com/best-latex-editors/} you have a short oviewview of some of them. Feel free to choose the one you like.  
-
-Include a subsection for each of the following items\footnote{By the way, what follows is the structure of an itemized list in Latex.}:
+\subsection{Purpose}
+The purpose of the DD is to provide a strategic guide to develop the project in the correct way, avoiding the errors and the waste of time that could be generated without studiyng the problem and the possible solutions. The document will be given to the development team.
+\subsubsection{Scope}
+The web platform will provide a system that manage the reports of the parking violations and elaborates the data to retrieve information about streets and cars:
 \begin{itemize}
-\item
-Purpose: here we include the goals of the project
-\item
-Scope: here we include an analysis of the world and of the shared phenomena
-\item
-Definitions, Acronyms, Abbreviations
-\item
-Revision history
-\item
-Reference Documents 
-\item
-Document Structure
+	\item
+	Report violation
+	\item 
+	Report validation
+	\item
+	Update statistics
+	\item
+	Manage streets data
+	\item
+	Different usage between end user and authority
 \end{itemize}
-Below you see how to define the header for a subsection.
-\subsection{Scope}
-... Here you see a subsubsection
-\subsubsection{World Phenomena}
-%what you write here is a comment that is not shown in the final text
+\subsection{Definitions, Acronyms, Abbreviations}
+\subsubsection{Definitions}
+\begin{itemize}
+	\item 
+	End-user: The end-user is the common user of the application, that take the picture of the violations and send it with all the report data to the Application server.
+	\item 
+	Authority: The authority are the municipality that will provide the traffic tickets to who commit a violation and can access different data than the end-user.
+	\item 
+	Web Server: A Web server uses HTTP (Hypertext Transfer Protocol) to provide the files that compose the Web pages to users, in response to their requests, which are forwarded by their hosts' HTTP clients. Dedicated computers and appliances may be referred to as Web servers as well.
+	\item 
+	Application Server: An application server is a type of server designed to install, operate and host applications and associated services for end users, IT services and organizations.
+\end{itemize}
+\subsubsection{Acronyms}
+\begin{itemize}
+	\item
+	API: Application Programming Interface
+	\item
+	DD: Design Document
+	\item
+	JDBC: Java DataBase Connectivity
+	\item
+	RASD: Requirements Analysis and Specifications Document
+	\item
+	RMI: Remote Method Invocation
+	\item
+	UX: User Experience
+	\item
+	ANPR: Automatic number-plate recognition, is the portion of the system
+	that is able to recognize the license plate number from the pictures prodived
+	by users.
+	\item
+	CUU: Code Unique Unitary
+	
+\end{itemize}
+
+\subsubsection{Abbreviations}
