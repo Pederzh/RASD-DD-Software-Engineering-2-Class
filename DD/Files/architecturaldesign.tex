@@ -249,7 +249,31 @@ List<Report> sendReport (String username, String password, String city, Date dat
 The method checks the identity using the usename and the password. If it results a profile of an authority, a list of report done in the city on that date is provided to the caller. Otherwise a null value is returned.
 The process works using ReportManager class and without involving the web server.
 
-\subsection{parte luigi}
+\subsection{Selected architectural styles and patterns}
+
+\subsubsection{RESTful architecture}
+SafeStreets adopts RESTful architecture. The main advantage of this architecture is the total separation the user interface from the server and the data storage.
+
+RESTful is the architectural style of the web itself, for this reason developers with knowledge in web architecture will naturally develop in the RESTful architecture which is also simple and lightweight.
+
+Client context is never stored on the server between requests for this reason each request has to contain all the necessary information. 
+A stateless server improves scalability because it allows the server to quickly free resources.
+
+Using a RESTful architecture implies the adoption of the constraints elencated below.
+By operating within these constraints, the system gains desirable non-functional properties
+
+\subsubsection{Client-Server}
+Client–server model is an application structure that separates tasks between the providers of a resource or service called servers, and multiple entities that request resources or services called clients.
+
+In our case client is the web-app from which users and authorities can access to SafeStreets through the browser, both mobile and desktop.
+
+Furthermore Client-Server architecture is a constraint that define a RESTful system.
+
+\subsubsection{MVC pattern}
+
+\subsubsection{Facade pattern}
+
+\subsubsection{Singleton}
 
 
 
