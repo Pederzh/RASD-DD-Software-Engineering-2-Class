@@ -267,6 +267,7 @@ List<Report> sendReport (String username, String password, String city, Date dat
 The method checks the identity using the usename and the password. If it results a profile of an authority, a list of report done in the city on that date is provided to the caller. Otherwise a null value is returned.
 The process works using ReportManager class and without involving the web server.
 
+
 \subsection{Selected architectural styles and patterns}
 
 \subsubsection{RESTful architecture}
@@ -280,18 +281,94 @@ A stateless server improves scalability because it allows the server to quickly 
 Using a RESTful architecture implies the adoption of the constraints elencated below.
 By operating within these constraints, the system gains desirable non-functional properties
 
-\subsubsection{Client-Server}
+\paragraph{Stateless}
+It means that the necessary state to handle the request is contained within the request itself and server would not store anything related to the session. In REST, the client must include all information for the server to fulfill the request whether as a part of query params, headers or URI.
+
+\paragraph{Uniform interface}
+This constraint is fundamental to the design of any RESTful system and it is divided into:
+Resource identification in requests: Individual resources are identified in requests, for example using URIs in RESTful Web services. 
+
+\paragraph{Cacheable}
+Caching, that can be implemented on the server or client side, shall be applied to resources when applicable and then these resources have to declare themselves cacheable.
+
+Caching partially or completely eliminates some client–server interactions, further improving availability and performance.
+
+\paragraph{Layered system}
+An application architecture needs to be composed of multiple layers. Each layer doesn’t know any thing about any layer other than that of immediate layer and there can be lot of intermediate servers between client and the end server. Intermediary servers may improve system availability by enabling load-balancing and by providing shared caches.
+
+\paragraph{Code on demand}
+It is an optional feature. According to this, servers can provide executable code to the client.
+
+\paragraph{Client–Server}
+REST application must have a client-server architecture. Client doesn’t need to know anything about business logic and server doesn’t need to know anything about frontend, so they can change independently.
+
+
+\subsubsection{Client-Server architecture}
 Client–server model is an application structure that separates tasks between the providers of a resource or service called servers, and multiple entities that request resources or services called clients.
 
 In our case client is the web-app from which users and authorities can access to SafeStreets through the browser, both mobile and desktop.
 
-Furthermore Client-Server architecture is a constraint that define a RESTful system.
+As described above, Client-Server architecture is a constraint that define a RESTful system.
 
 \subsubsection{MVC pattern}
+This pattern is used to separate application's concerns.
+\begin{itemize}
+	\item \textbf{Model}: It is the application's data structure and ti directly manages the data, logic and rules of the application.
+	\item \textbf{View}: View represents the visualization of the data that model contains.
+	\item \textbf{Controller}: It communicates data back and forth between the Model objects and the View objects.
+\end{itemize}
+
+Because MVC divides the various components of an application, developers are able to work in parallel on different components without blocking others. 
+
+SafeSteets is divided between the front-end and the back-end. Back-end developers design the structure of the data and how the user interacts with it without requiring the UI. Instead, front-end developers are able to design the UI of the web-app prior to the data structure being available.
+Cons: Knowledge on multiple technologies becomes the norm. Developers using MVC need to be skilled in multiple technologies.
+
 
 \subsubsection{Facade pattern}
+Facade pattern is used in SafeStreets class diagram: \textit{SystemManagerInterface} and \textit{DataSenderInterface}.
 
-\subsubsection{Singleton}
+It is used to cover the complexities of a large system and therefore provides a simple interface to the client. 
+
+
+\subsubsection{Singleton pattern}
+Singleton pattern is used in SafeStreets class diagram: \textit{UserManager, StreetManager, AccidentManager, VehicleManager, ReportManager, StatisticManager, ViolationManager, SuggestionManager, DataSender, SystemManager}.
+
+By definition it is a pattern design that restricts the number of instances of a class to one object, so it is used when we need to have only one instance of our class.
+
+
+\subsection{Other design decisions}
+
+\subsubsection{Front-end}
+
+\paragraph{React}
+
+For the front-end SafeStreets uses React JS, a modern JavaScript framework developed bu Facebook.
+
+React allows developers to create large web applications which can change data, without reloading the page. The main purpose of React is to be fast, scalable, and simple.
+
+For templating, instead of using regular JavaScript, it uses \textbf{JSX}. It is simple JavaScript which allows HTML quoting and uses these HTML tag syntax to render components.
+
+\subsubsection{Back-end}
+
+\paragraph{Spring Boot}
+
+For the back-end SafeStreet uses Spring Boot, is an application framework for the Java platform.
+It is an already configurated Spring's solution for creating stand-alone, Spring-based applications. It is an HTTP- and servlet-based framework for web applications and RESTful web services.
+
+\subsubsection{Database}
+
+\paragraph{MySQL}
+
+SafeStreets uses MySQL as RDBMS (\textit{Relational DataBase Management System.}) to store its data.
+Structured relationships between rows and columns in a table, SQL databases are best when you need ACID compliance. 
+
+ACID stands for:
+\begin{itemize}
+	\item Atomicity: each transaction either succeeds completely or is fully rolled back.
+	\item Consistency: data written to a database must be valid according to all defined rules.
+	\item Isolation:  when transactions are run concurrently, they do not contend with each other, and act as if they were being run sequentially.
+	\item Durability: once a transaction has been committed to the database, it is considered permanent, even in the event of a system failure.
+\end{itemize}
 
 
 
