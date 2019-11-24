@@ -1,19 +1,19 @@
 \begin{itemize}
 	\item
 	\textbf{R1}: The system have to allow users to send photos and information about a traffic violations. \\
-	\textbf{DataSender}: manages the reports that the users create and enable them to send it to the web platform. A report will contain: the type of violation, the licenseplate of the vehicle that commit the violation and the street where it happened.
+	\textbf{ReportManager}: create the report using the method createReport(). The user will logs into the web platform and the will insert all the data about the violation.  A report will contain: the type of violation, the licenseplate of the vehicle that commit the violation and the street where it happened.
 	
 	\item 
 	\textbf{R2.1}:The system must be able to retrieve the license plates from photos. \\
-	\textbf{ReportManager}: it contains all the methods to retrieve the license plate from the photos and/or from the user input. 
+	\textbf{ReportManager}: it contains all the methods to retrieve the license plate from the photos and/or from the user input. Using the method createReport() will be analyzed the picture sent by the user. In addition the user have to insert the licenseplate into a textbox. The system will match the licenseplate retrieve from the alghoritm with the licenseplate insert by the user. If they are the same the report will be created.
 	
 	\item 
 	\textbf{R2.2}:The platform have to retrieve the street where the violation occured. \\
-	\textbf{ReportManager}: it has all the methods to retrieve the street from the GPS and/or from the user input. 
+	\textbf{ReportManager}: it has all the methods to retrieve the street from the GPS and/or from the user input. It will use the method createReport() in which is contained the position sent by the GPS or the position inserted by the user.
 	
 	\item 
 	\textbf{R2.3}:The platform must be able to ensure the picture reliability. \\
-	\textbf{NON SO QUALE CLASSE LO FACCIA} CREATEREPORT
+	\textbf{ReportManager}: it contains all the methods to retrieve the license plate from the photos and/or from the user input. Using the method createReport() will be analyzed the picture sent by the user. In addition the user have to insert the licenseplate into a textbox. The system will match the licenseplate retrieve from the alghoritm with the licenseplate insert by the user. If they are the same the report will be created.
 	
 	\item 
 	\textbf{R3.1}:The system have to locate the most unsafe areas. \\
@@ -21,7 +21,7 @@
 	
 	\item 
 	\textbf{R3.2}:The system must be able to show the impact of the application in terms of number of violations. \\
-	\textbf{ANCHE QUA NON SO} CREATE STATISTIC
+	\textbf{StatisticManager}: using the method createStatistic will be showed the impact of the application. It allows to see the number of violations with their type and the streets where they happened.
 	
 	\item 
 	\textbf{R3.3}:The platform have to generate other type of statistics like the most egregious offenders. \\
@@ -30,11 +30,11 @@
 	
 	\item 
 	\textbf{R4}:The platform must be able to suggest possible interventions. \\
-	The \textbf{SuggestionManager} allow to provide the suggestion based on the type of violation commited by the user.
+	The \textbf{SuggestionManager} allow to provide the suggestion based on the type of violation commited by the user. It will receive the type of violation, and the SuggestionManager will provide the best suggestion for that violation.
 	
 	\item 
 	\textbf{R5}:The system have to guarantee data integrity. \\ 
-	The \textbf{SystemManager} can guarantee the data integrity.
+	The \textbf{SystemManager} can guarantee the data integrity, beacause it stores and maintains the data only if they are complete and consistent. If some data have to be modified or removed only the user with the specific privilege can do it.
 	
 	
 	
