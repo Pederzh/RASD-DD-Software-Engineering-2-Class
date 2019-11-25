@@ -11,12 +11,30 @@ The communication between the three levels is asyncronous, so none will wait the
 This structure grants speed because the team can improve every single layer without having impact on the other tiers.
 It improves the efficency because every member of the team can focus on his core function.
 \begin{figure}
-	\centering
-	\includegraphics[width=0.98\linewidth, height=0.55\textheight]{Images/networkarchitecture}
-	\caption[Network Architecture]{}
-	\label{fig:networkarchitecture}
+	
+	\includegraphics[width=0.95\linewidth, height=0.20\textheight]{../DD/Images/architecture}
+	\caption{High­‐level
+		system
+		architecture}
+	\label{High­‐level
+		system
+		architecture}
 \end{figure}
 \newpage
+\begin{figure}
+	\centering
+	\includegraphics[width=0.98\linewidth, height=0.55\textheight]{Images/networkarchitecture}
+	\caption{Network Architecture}
+	\label{fig:networkarchitecture}
+\end{figure}
+3-tier
+\newpage
+The network architecture illustrates how the 3-tier architecture is applied to SafeStreet. The presentation level include the authory or the user device with the web app that show the front end of the platform. The authority system (is not incorporate in the SafeStreet architecture) represents the software that they use to generate traffic tickets. It recieves the data (type of violation, licenseplate, name, surname etc.) from the API that SafeStreet provides.
+The application tier contains the web server and the application server. The web server provides the HTML page to the authority or to the user and the JavaScript logic. It dose not communicate with the application server because the contents of the web pages will be filled dinamically with the JavaScript calls between the authority/user device and the application server. This is possible because the platform exploit AJAX, so the client send a request to the application server, that recieves it and call the handle function to satisfy it. Once the handle function end, the application server send the response to the web app (JSON). Through the JavaScript logic provided to the Authority/User device, the JSON object could be elaborated and the contents of the pages can be updated.
+The data access level contains the database server, that communicates with the application server. The latter will interrogate the db server to retrieve, update or remove data in the database. 
+The application server is connected to two firewall that will define a DMZ, so the external device can access only to the method inside the DMZ without having the access to all the network. The firewall can guarantee and improve the security of the network and provides more controls on the packets that are moving in the network.
+Every server is connected to a load balancer to distribute the request avoiding slowdowns. They grant better perfomance.
+The end devices exploit the cache of the browser so it grants less request to the different server and in some cases is possible to see data without having an internet connection.
 \subsubsection{Database structure}
 The database will have a structure according to the following one: 
 
@@ -27,18 +45,6 @@ The database will have a structure according to the following one:
 	\label{Database structure}
 \end{figure}
 
-\begin{figure}
-	
-	\includegraphics[width=0.95\linewidth, height=0.20\textheight]{../DD/Images/architecture}
-	\caption{High­‐level
-		system
-		architecture}
-	\label{High­‐level
-		system
-		architecture}
-\end{figure}
-
-\newpage
 
 \subsection{Component view}
 In order to give a better description of the component of the system, the below class diagram shows how the application is designed.
