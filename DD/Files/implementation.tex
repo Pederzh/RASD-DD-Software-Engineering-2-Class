@@ -19,9 +19,9 @@ Furthermore, the system works with external services such as:
 	DBMS
 \end{itemize}
 
-Each subsystem will be implemented and tested indipendently with a top down approach. At the end of this phase a test of the whole system will check the integration between the components. 
+Each subsystem will be implemented and tested independently with a top down approach. At the end of this phase a test of the whole system will check the integration between the components. 
 
-The external compontes will be used directly without any kind of test because they are assumed to be reliable.
+The external components will be used directly without any kind of test because they are assumed to be reliable.
 
 \subsection{Features}
 
@@ -52,7 +52,7 @@ In this section we consider all the features provided by SafeStreets to users in
 \end{center}
 
 \subsection{Implementation}
-The implementattion of these features will be done by implementing first the classes that provides methods to other classes.
+The implementation of these features will be done by implementing first the classes that provides methods to other classes.
 
 One of the first task will be to create the DatabaseManager that will be used by the application to interact with the database. 
 Naturally, before doing this task the database  have to be created and configured.
@@ -60,12 +60,15 @@ Naturally, before doing this task the database  have to be created and configure
 The next step will be to implement all the others managers excepted from the SystemManager, that works on these.
 After this, the SystemManager will be implemented. 
 
-The last implementing task concerns the creation of the interfaces exposed to the web app (servelts) and to the authorities.
+The last implementing task concerns the creation of the interfaces exposed to the web app (servlets) and to the authorities.
 
 The creation of the front-end of the web app can be done simultaneously with the other tasks.
 
-At the end the Javascript part, that requires contents dinamically, will be created.
-\begin{figure}
+At the end in the front-end will be implemented the management of data fetched and sent through API calls, \textit{in the image below is represented as "javascript part"}.
+
+\newpage
+
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=0.7\linewidth]{Images/Tasks}
 	\caption{Tasks flow}
@@ -74,7 +77,10 @@ At the end the Javascript part, that requires contents dinamically, will be crea
 
 \subsection{Testing}
 
-The tests of the systems will be done component by component in order to unsure the reliabilty of their behaviour.
+\paragraph{Unit tests:}
+Tests of the system components will be done on the single piece of code in order to unsure the reliability of their behavior.
+By definition, Unit tests should have no dependencies on code outside the unit tested.
 
-When SafeStreets will be be totally realized, the whole system will be tested to check all the features it has to offer.
+\paragraph{Integration tests:}
+When SafeStreets will be realized, the whole system will be tested to check if different pieces of the modules are working together.
 

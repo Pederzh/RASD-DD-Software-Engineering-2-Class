@@ -5,7 +5,7 @@ It is divided into three levels: Presentation, Application and Data Access.
 The presentation tier contains the user interface of the web platform, it displays to the end-user the useful data like statistics.
 
 The application level contains the core of the platform, it is composed by: the application server with the application installed and the web server.
-It contains the functions that elaborate the data (e.g. Check report validity, LicensePlate export from image).
+It contains the functions that elaborate the data (e.g. Check report validity, license plate export from image).
 The application server also allows multiple clients to work simultaneously.
 
 Data access layer contains the database, which store all the reports, streets and users data (end-users and authorities).
@@ -13,20 +13,15 @@ Some communications between presentation and application layers are asynchronous
 This structure grants speed because the team can improve every single layer without having impact on the other tiers.
 It improves the efficiency because it brings separation between independent tasks.
 
-\begin{figure}
-	
+\begin{figure}[H]
 	\includegraphics[width=0.95\linewidth, height=0.20\textheight]{../DD/Images/architecture}
-	\caption{High­‐level
-		system
-		architecture}
-	\label{High­‐level
-		system
-		architecture}
+	\caption{High level system architecture}
+	\label{fig: high­ level system architecture}
 \end{figure}
 \newpage
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.98\linewidth, height=0.55\textheight]{Images/networkarchitecture}
+	\includegraphics[width=0.98\linewidth]{Images/networkarchitecture}
 	\caption{Network Architecture}
 	\label{fig:networkarchitecture}
 \end{figure}
@@ -63,7 +58,7 @@ The database will have a structure according to the following one:
 	\label{Database structure}
 \end{figure}
 
-
+\newpage
 \subsection{Component view}
 In order to give a better description of the component of the system, the class diagram below shows how the application is designed.
 
@@ -88,12 +83,15 @@ During the registration process of an authority the specific method calls a web 
 Moreover, an interface is exposed to authorities systems. In this way they can call a method that provide the reports data and generate traffic tickets on them. 
 
 Before sending any type of information the identity of the authority is checked using the appropriate method of UserManager class.
+\newpage
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=1.12\linewidth]{Images/ClassSafeStreets.png}
 	\caption{Class diagram}
 \end{figure}
+
+\newpage
 
 The component diagram below describes the implementation of the classes described before in terms of components.
 
@@ -121,14 +119,16 @@ There are also sub-components that perform specific operations and interact with
  ReportManager: is the component that store reports in the database and retrieve information on it.
  \item 
  DatabaseManager: it is used to keep the connection to the DBMS and to send queries to it.
- 
 \end{itemize}
+
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=1.12\linewidth]{Images/component.png}
 	\caption{Component diagram}
 \end{figure}
+
+\newpage
 
 \subsection{Deployment view}
 In the deployment diagram below it is possible to see the physical implementation of the system.
@@ -151,28 +151,34 @@ In the diagram there is also another node that corresponds with the authority sy
 	\caption{Deployment diagram}
 \end{figure}
 
-\subsection{Runtime view}
 \newpage
+
+\subsection{Runtime view}
 
 \subsubsection{End-user registration}
 The sequence diagram below shows how it is developed the registration of a new user. The SystemManager class , through its interface, calls  the method "register()" of the UserManager, giving three parameters: username, mail, password. The first two parameters must be unique otherwise the registration failed.
 UserManager will call the method "insert()" of DatabaseManager that will recieve the query to insert the User into the database.
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.97\linewidth, height=0.32\textheight]{Images/RunTimeDiagram/Sequence1}
+	\includegraphics[width=1\linewidth]{Images/RunTimeDiagram/Sequence1}
 	\caption{Register}
 	\label{fig:Register}
 \end{figure}
+
+\newpage
+
 \subsubsection{User reports a violation}
  SystemManager calls the method createReport() that will create a Report object with the data received. The report is created and stored only if it is valid and consistent. 
  
 Once the report is received, if they are not already present in the database, the street and the vehicle will be added in the database, through DatabaseManager, using the different manager, StreetManager and VehicleManager with respectively: newStreet() and newVehicle().
 \begin{figure}[H] 
 	\centering
-	\includegraphics[width=0.95\linewidth, height=0.7\textheight]{Images/RunTimeDiagram/Sequence2}
+	\includegraphics[width=1.1\linewidth]{Images/RunTimeDiagram/Sequence2}
 	\caption{User reports a violation}
 	\label{fig:User reports a violation}
 \end{figure}
+
+\newpage
 
 \subsubsection{Generate statistic}
 SystemManager receives the client call showStatistic() and will uses the method createStatistic() of StatisticManager class.
@@ -186,6 +192,9 @@ Statistic contains: information about number of violations and accidents, most u
 	\caption{Insert accident and generate statistic}
 	\label{fig:Insert accident and generate statistic}
 \end{figure}
+
+\newpage
+
 \subsubsection{Check street status}
 SystemManager is called by the method streetStatus and uses a proper method of StreetManager to retrieve the information about the status of the street in a specific area. In this process is involved also DatabaseManager that communicates with StreetManager, which receives the data from the database.
 \begin{figure}[H]
@@ -204,6 +213,7 @@ DataSender receives an external call from the authority own system, the latter i
 	\label{fig:datasender}
 \end{figure}
 
+\newpage
 
 \subsection{Component interfaces}
 
@@ -279,7 +289,7 @@ Every method exposed by this interface will correspond to a servlet that is able
 	
 	The method updates the data if the username exists and the old password is correct, then
 	a boolean value is returned. According to result of the method, the application server generate the proper response.
-	The method use UserManager class to perfom that opertaion.
+	The method use UserManager class to perfom that operton.
 	
 	\item
 	List<String> streetStatus(Street city)
@@ -299,6 +309,7 @@ List<Report> sendReport (String username, String password, String city, Date dat
 The method checks the user's identity using username and password. If it results a profile of an authority, a list of report done in the city on that date is provided to the caller. Otherwise a null value is returned.
 The process works using ReportManager class and without involving the web server.
 
+\newpage
 
 \subsection{Selected architectural styles and patterns}
 
@@ -357,6 +368,7 @@ Because MVC divides the various components of an application, developers are abl
 SafeSteets is divided between the front-end and the back-end. Back-end developers design the structure of the data and how the user interacts with it without requiring the UI. Instead, front-end developers are able to design the UI of the web-app prior to the data structure being available.
 Cons: Knowledge on multiple technologies becomes the norm. Developers using MVC need to be skilled in multiple technologies.
 
+\newpage
 
 \subsubsection{Facade pattern}
 Facade pattern is used in SafeStreets class diagram: \textit{SystemManagerInterface} and \textit{DataSenderInterface}.
@@ -369,6 +381,7 @@ Singleton pattern is used in SafeStreets class diagram: \textit{UserManager, Str
 
 By definition it is a pattern design that restricts the number of instances of a class to one object, so it is used when we need to have only one instance of our class.
 
+\newpage
 
 \subsection{Other design decisions}
 
