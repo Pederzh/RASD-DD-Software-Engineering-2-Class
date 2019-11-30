@@ -173,14 +173,7 @@ Once the report is recieved, if it is possible and aren't already present in the
 	\caption{User reports a violation}
 	\label{fig:User reports a violation}
 \end{figure}
-\subsubsection{Check report status}
-The user after having logged in, the UserManager call findReportByUser() passing it the username and the ReportManager will retrieve the report. Using the getter and setter it is possible to see the report status.
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.95\linewidth, height=0.4\textheight]{Images/RunTimeDiagram/Sequence3}
-	\caption{Check report status}
-	\label{fig:Check report status}
-\end{figure}
+
 \subsubsection{Insert accident and generate statistic}
 The Authority logs into the platform in a similar way as the user but instead giving his username, he will provide his CUU. Than from the SystemManager it will call registerAccident() on the AccidentManager(). The AccidentManager will call createStatistic() on the StatisticManager that will provide the statistic to the SystemManager, which call showStatistic() to display them.
 The accident will be inserted into the database using the method "insert()" of DatabaseManager.
@@ -198,13 +191,13 @@ The Authority after logging into the platform, will call findStreetByNameCity() 
 	\caption{Check street status}
 	\label{fig:Check street status}
 \end{figure}
-\subsubsection{Check car status}
-The Authority after logging into the platform, will call findVehicleByLicensePlate() from SystemManager to the VehicleManager passing the license plate as parameters. The StreetManager will give as response the Car, so it is possible to retrieve the car status using getter method.
+
+\subsubsection{Data sender to Authority}
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.95\linewidth, height=0.35\textheight]{Images/RunTimeDiagram/Sequence6}
-	\caption{Check car status}
-	\label{fig:Check car status}
+	\includegraphics[width=0.9\linewidth]{Images/RunTimeDiagram/DataSender}
+	\caption[Data Sender to Authority]{}
+	\label{fig:datasender}
 \end{figure}
 
 
