@@ -154,9 +154,9 @@ In the diagram there is also another node that corresponds with the authority sy
 \subsection{Runtime view}
 \newpage
 
-\subsubsection{Registration}
+\subsubsection{End-user registration}
 The sequence diagram below shows how it is developed the registration of a new user. The SystemManager class , through its interface, calls  the method "register()" of the UserManager, giving three parameters: username, mail, password. The first two parameters must be unique otherwise the registration failed.
-UserManager will call the method "insert()" of DatabaseManager that will recieve as parameter the User and will add it into the database.
+UserManager will call the method "insert()" of DatabaseManager that will recieve the query to insert the User into the database.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.97\linewidth, height=0.32\textheight]{Images/RunTimeDiagram/Sequence1}
@@ -164,9 +164,9 @@ UserManager will call the method "insert()" of DatabaseManager that will recieve
 	\label{fig:Register}
 \end{figure}
 \subsubsection{User reports a violation}
-The user log in using the method login through UserManager, SystemManager, SystemManagerInterface and DatabaseManager, giving username and password as parameters.
-Than the SystemManager call the method recieveReport() that will place it in listen for the new report. The report is created and stored only if it is valid and consistent. The ReportManager will call createReport() that implies the communication with with DataSender and  DataSenderInterface using "sendReport()".
-Once the report is recieved, if it is possible and aren't already present in the db, the street, the vehicle and the type of violation will be added in the db, through DatabaseManager, using the different manager: StreetManager, VehicleManager, ViolationManager with reciprocally the methods: newStreet(), newVehicle() and addViolationType().
+ SystemManager calls the method createReport() that will create a Report object with the data received. The report is created and stored only if it is valid and consistent. 
+ 
+Once the report is received, if they are not already present in the database, the street and the vehicle will be added in the database, through DatabaseManager, using the different manager, StreetManager and VehicleManager with respectively: newStreet() and newVehicle().
 \begin{figure}[H] 
 	\centering
 	\includegraphics[width=0.95\linewidth, height=0.7\textheight]{Images/RunTimeDiagram/Sequence2}
@@ -174,17 +174,20 @@ Once the report is recieved, if it is possible and aren't already present in the
 	\label{fig:User reports a violation}
 \end{figure}
 
-\subsubsection{Insert accident and generate statistic}
-The Authority logs into the platform in a similar way as the user but instead giving his username, he will provide his CUU. Than from the SystemManager it will call registerAccident() on the AccidentManager(). The AccidentManager will call createStatistic() on the StatisticManager that will provide the statistic to the SystemManager, which call showStatistic() to display them.
-The accident will be inserted into the database using the method "insert()" of DatabaseManager.
+\subsubsection{Generate statistic}
+SystemManager receives the client call showStatistic() and will uses the method createStatistic() of StatisticManager class.
+
+This method uses DatabaseManager to retrieve data from the database and generate statistics regarding a specific area.
+
+Statistic contains: information about number of violations and accidents, most unsafe areas and most involved vehicles.
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.95\linewidth, height=0.45\textheight]{Images/RunTimeDiagram/Sequence4}
+	\includegraphics[width=0.97\linewidth, height=0.35\textheight]{Images/RunTimeDiagram/Sequence4}
 	\caption{Insert accident and generate statistic}
 	\label{fig:Insert accident and generate statistic}
 \end{figure}
 \subsubsection{Check street status}
-The Authority after logging into the platform, will call findStreetByNameCity() from SystemManager to the StreetManager passing the city name as parameters. The StreetManager will give as response the Street, so it is possible to retrieve the street status using getter method.
+SystemManager is called by the method streetStatus and uses a proper method of StreetManager to retrieve the information about the status of the street in a specific area. In this process is involved also DatabaseManager that communicates with StreetManager, which receives the data from the database.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.95\linewidth, height=0.35\textheight]{Images/RunTimeDiagram/Sequence5}
@@ -193,6 +196,7 @@ The Authority after logging into the platform, will call findStreetByNameCity() 
 \end{figure}
 
 \subsubsection{Data sender to Authority}
+DataSender receives an external call from the authority own system, the latter is in charge of the generation of traffic tickets. DataSender calls getReportAboutArea() of ReportManager, which returns the reports received in a specific area. 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.9\linewidth]{Images/RunTimeDiagram/DataSender}
@@ -203,7 +207,7 @@ The Authority after logging into the platform, will call findStreetByNameCity() 
 
 \subsection{Component interfaces}
 
-The interfaces exposed are manly two: SystemManagerInterface and DataSenderInterface. Their role was explained in the previous sections of this document.
+The interfaces exposed are mainly two: SystemManagerInterface and DataSenderInterface. Their role was explained in the previous sections of this document.
 
 \begin{figure}[H]
 	\centering
@@ -276,6 +280,11 @@ Every method exposed by this interface will correspond to a servlet that is able
 	The method updates the data if the username exists and the old password is correct, then
 	a boolean value is returned. According to result of the method, the application server generate the proper response.
 	The method use UserManager class to perfom that opertaion.
+	
+	\item
+	List<String> streetStatus(Street city)
+	
+	This method analyze the status of a city, especially the status of routes. It returns the color of the street that indicates if there happened so much violations and accidents or not.
 \end{itemize}
 
 \subsubsection{SystemManagerInterface}
