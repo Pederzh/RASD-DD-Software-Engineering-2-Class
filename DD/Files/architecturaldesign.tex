@@ -155,18 +155,18 @@ In the diagram there is also another node that corresponds with the authority sy
 \newpage
 
 \subsubsection{Registration}
-The sequence diagram below shows how it is developed the registration of a new user. The SystemManager class calls through the UserManager class the method "register" giving three parameters: username, mail, password. The first two parameters must be unique otherwise the registration failed.
-
+The sequence diagram below shows how it is developed the registration of a new user. The SystemManager class , through its interface, calls  the method "register()" of the UserManager, giving three parameters: username, mail, password. The first two parameters must be unique otherwise the registration failed.
+UserManager will call the method "insert()" of DatabaseManager that will recieve as parameter the User and will add it into the database.
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.95\linewidth, height=0.37\textheight]{Images/RunTimeDiagram/Sequence1}
+	\includegraphics[width=0.97\linewidth, height=0.32\textheight]{Images/RunTimeDiagram/Sequence1}
 	\caption{Register}
 	\label{fig:Register}
 \end{figure}
 \subsubsection{User reports a violation}
-The user log in using the method login through UserManager, SystemManager and SystemManagerInterface, giving username and password as parameters.
-Than the UserManager call the method recieveReport() that will place it in listen for the new report. The report is created and stored only if it is valid and consistent. The SystemManager will call createReport() that implies that the SystemManagerInterface will call recieveReport() that connect it with the ReportManager, that communicate with DataSender() and the DataSenderInterface using sendReport().
-Once the report is recieved, if it is possible and aren't already present in the db, the street, the vehicle and the type of violation will be added in the db, using the different manager: StreetManager, VehicleManager, ViolationManager with reciprocally the methods: newStreet(), newVehicle() and addViolationType().
+The user log in using the method login through UserManager, SystemManager, SystemManagerInterface and DatabaseManager, giving username and password as parameters.
+Than the SystemManager call the method recieveReport() that will place it in listen for the new report. The report is created and stored only if it is valid and consistent. The ReportManager will call createReport() that implies the communication with with DataSender and  DataSenderInterface using "sendReport()".
+Once the report is recieved, if it is possible and aren't already present in the db, the street, the vehicle and the type of violation will be added in the db, through DatabaseManager, using the different manager: StreetManager, VehicleManager, ViolationManager with reciprocally the methods: newStreet(), newVehicle() and addViolationType().
 \begin{figure}[H] 
 	\centering
 	\includegraphics[width=0.95\linewidth, height=0.7\textheight]{Images/RunTimeDiagram/Sequence2}
@@ -183,6 +183,7 @@ The user after having logged in, the UserManager call findReportByUser() passing
 \end{figure}
 \subsubsection{Insert accident and generate statistic}
 The Authority logs into the platform in a similar way as the user but instead giving his username, he will provide his CUU. Than from the SystemManager it will call registerAccident() on the AccidentManager(). The AccidentManager will call createStatistic() on the StatisticManager that will provide the statistic to the SystemManager, which call showStatistic() to display them.
+The accident will be inserted into the database using the method "insert()" of DatabaseManager.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.95\linewidth, height=0.45\textheight]{Images/RunTimeDiagram/Sequence4}
@@ -197,7 +198,7 @@ The Authority after logging into the platform, will call findStreetByNameCity() 
 	\caption{Check street status}
 	\label{fig:Check street status}
 \end{figure}
-\subsubsection{Check street status}
+\subsubsection{Check car status}
 The Authority after logging into the platform, will call findVehicleByLicensePlate() from SystemManager to the VehicleManager passing the license plate as parameters. The StreetManager will give as response the Car, so it is possible to retrieve the car status using getter method.
 \begin{figure}[H]
 	\centering
