@@ -75,12 +75,26 @@ At the end in the front-end will be implemented the management of data fetched a
 	\label{Tasks flow}
 \end{figure}
 
+\newpage
+
 \subsection{Testing}
 
-\paragraph{Unit tests:}
+\subsubsection{Unit tests:}
 Tests of the system components will be done on the single piece of code in order to unsure the reliability of their behavior.
-By definition, Unit tests should have no dependencies on code outside the unit tested.
 
-\paragraph{Integration tests:}
-When SafeStreets will be realized, the whole system will be tested to check if different pieces of the modules are working together.
+By definition, Unit tests should have no dependencies on code outside the unit tested, for this reason the database won’t be docked to tests, in order to avoid any hard dependency on external data.
+
+The tool used for Unit testing is \textbf{JUnit}.
+
+In conjunction with JUnit, we use \textbf{Mockito}, a mock framework that allows you to create mock objects and define their behavior.
+
+A mock object simulates the data source and ensures that the test conditions are always the same.
+
+
+\subsubsection{Integration tests:}
+Integration tests focus on integrating different layers of the application. No mocking is involved, so we introduce actual dependencies like databases.
+
+\textbf{Arquillian} is an integration testing framework designed for JEE. Tests are written with a syntax similar to JUnit, used to execute test cases against the container.
+
+\textbf{API testing} is part of integration testing, used to determine if they meet expectations for functionality, reliability, performance, and security.
 
