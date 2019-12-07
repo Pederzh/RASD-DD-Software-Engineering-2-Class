@@ -358,9 +358,37 @@ As described above, Client-Server architecture is a constraint that defines a RE
 \subsubsection{MVC pattern}
 This pattern is used to separate application concerns.
 \begin{itemize}
-	\item \textbf{Model}: It is the application data structure and directly manages the data, logic and rules of the application.
-	\item \textbf{View}: View represents the visualization of the data that model represents.
-	\item \textbf{Controller}: It communicates data back and forth between the Model objects and the View objects.
+	\item \textbf{Model}: It is the application data structure and directly manages the data, logic and rules of the application. \\
+	In our implementation:
+	\subitem - End User
+	\subitem - Authority
+	\subitem - Violation
+	\subitem - Suggestion
+	\subitem - Vehicle
+	\subitem - Accident
+	\subitem - Street
+	
+	\newpage
+	
+	\item \textbf{View}: View represents the visualization of the data that model represents. \\
+	In our implementation:
+	\subitem - Login form
+	\subitem - Registration form
+	\subitem - User send violation report
+	\subitem - Map showing violations
+	\subitem - Suggestion for possible interventions
+	\subitem - Violations by license plate
+	
+	\item \textbf{Controller}: It communicates data back and forth between the Model objects and the View objects. \\
+	In our implementation:
+	\subitem - login
+	\subitem - register
+	\subitem - receviereport
+	\subitem - showstatistics
+	\subitem - addsuggestion
+	\subitem - addviolation
+	\subitem - modifyuserdata
+	\subitem - streetstatus
 \end{itemize}
 
 Because MVC divides the various components of an application, developers are able to work in parallel on different components without blocking others. 
