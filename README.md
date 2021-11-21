@@ -1,8 +1,5 @@
 # SafeStreets project: Cavadini, Molinari, Pederzani
 
-## Deliverables
-RASD (Requirement Analysis and Specification Document): https://bit.ly/3qYutCU
-
 DD (Design Document): https://bit.ly/3CD5APc
 
 ## RASD (Requirement Analysis and Specification Document)
@@ -10,12 +7,13 @@ The	Requirements	analysis	and	specification	document	(RASD) contains	the	descrip
 the	use	cases	 that	describe	 them,	and	 the	models	describing	requirements	and	specification	 for	 the	
 problem	under	consideration.	You	are	to use	a	suitable	mix	of	natural	language,	UML, and	Alloy.
 
-RASD (Requirement Analysis and Specification Document): https://bit.ly/3qYutCU
-
 ## DD (Design Document)
 The Design	document	(DD) must	contain	a	functional	description	of	the	system,	and	any	other	view	you	
 find	useful	to	provide.	You	should	use	all	the	UML	diagrams	you	need	to	provide	a	full	description	of	
 the	 system.
+
+## Deliverables
+RASD (Requirement Analysis and Specification Document): https://bit.ly/3qYutCU
 
 DD (Design Document): https://bit.ly/3CD5APc
 
