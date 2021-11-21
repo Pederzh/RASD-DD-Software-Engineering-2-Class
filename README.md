@@ -1,6 +1,6 @@
-# SafeStreets project: Cavadini, Molinari, Pederzani
+# SafeStreets project (Software Engineering 2 Class): 
 
-DD (Design Document): https://bit.ly/3CD5APc
+Authors: Ivan Cavadini, Nicolò Molinari, Luigi Pederzani
 
 ## RASD (Requirement Analysis and Specification Document)
 The	Requirements	analysis	and	specification	document	(RASD) contains	the	description	of	the	scenarios,	
