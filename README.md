@@ -2,6 +2,7 @@
 
 ## Deliverables
 RASD (Requirement Analysis and Specification Document): https://bit.ly/3qYutCU
+
 DD (Design Document): https://bit.ly/3CD5APc
 
 ## RASD (Requirement Analysis and Specification Document)
